@@ -378,12 +378,20 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <a
-              href="mailto:founders@sehatdost.ai?subject=Request%20Early%20Access%20-%20SehatDost%20AI"
-              className="hidden rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink shadow-lg transition hover:-translate-y-0.5 hover:bg-sky-50 sm:inline-flex"
-            >
-              Request Early Access
-            </a>
+            <div className="hidden items-center gap-3 sm:flex">
+              <a
+                href="http://localhost:8080"
+                className="rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/[0.16]"
+              >
+                Dashboard
+              </a>
+              <a
+                href="mailto:founders@sehatdost.ai?subject=Request%20Early%20Access%20-%20SehatDost%20AI"
+                className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink shadow-lg transition hover:-translate-y-0.5 hover:bg-sky-50"
+              >
+                Request Early Access
+              </a>
+            </div>
           </nav>
         </header>
 
