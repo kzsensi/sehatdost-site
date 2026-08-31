@@ -380,7 +380,7 @@ export default function Home() {
             </div>
             <div className="hidden items-center gap-3 sm:flex">
               <a
-                href="http://localhost:8080"
+                href="https://portal.sehatdost.com"
                 className="rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/[0.16]"
               >
                 Dashboard
