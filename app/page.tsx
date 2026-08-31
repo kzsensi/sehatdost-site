@@ -163,37 +163,37 @@ const team: Array<{
   detail: string;
   image: string;
 }> = [
-  {
-    name: "Mr. Shashi Kumar",
-    role: "Founder, CEO",
-    detail: "Mentor and educator with healthcare operations and leadership experience.",
-    image: "/team-shashi-kumar.png"
-  },
-  {
-    name: "Dr. Ruchi Singh Gaur",
-    role: "Co-Founder, COO",
-    detail: "CEO, Unity Critical Care, with direct hospital operations experience.",
-    image: "/team-ruchi-singh-gaur.png"
-  },
-  {
-    name: "Ms. Richa Prasad",
-    role: "Advisor",
-    detail: "Hospital operations leader focused on practical process improvement.",
-    image: "/team-richa-prasad.png"
-  },
-  {
-    name: "Mr. Kaushal Kishore",
-    role: "CFO",
-    detail: "Compliance and governance experience supporting responsible growth.",
-    image: "/team-kaushal-kishore.png"
-  },
-  {
-    name: "Mr. Rahul Deo Pandey",
-    role: "CTO",
-    detail: "Senior software developer with product and systems delivery experience.",
-    image: "/team-rahul-deo-pandey.png"
-  }
-];
+    {
+      name: "Mr. Shashi Kumar",
+      role: "Co-Founder, CSO",
+      detail: "Mentor and educator with healthcare operations and leadership experience.",
+      image: "/team-shashi-kumar.png"
+    },
+    {
+      name: "Dr. Ruchi Singh Gaur",
+      role: "Co-Founder, COO",
+      detail: "CEO, Unity Critical Care, with direct hospital operations experience.",
+      image: "/team-ruchi-singh-gaur.png"
+    },
+    {
+      name: "Ms. Richa Prasad",
+      role: "Founder, CMO",
+      detail: "Hospital operations leader focused on practical process improvement.",
+      image: "/team-richa-prasad.png"
+    },
+    {
+      name: "Mr. Kaushal Kishore",
+      role: "CFO",
+      detail: "Compliance and governance experience supporting responsible growth.",
+      image: "/team-kaushal-kishore.png"
+    },
+    {
+      name: "Mr. Rahul Deo Pandey",
+      role: "CTO",
+      detail: "Senior software developer with product and systems delivery experience.",
+      image: "/team-rahul-deo-pandey.png"
+    }
+  ];
 
 const navItems = [
   { label: "Problem", href: "#problem" },
