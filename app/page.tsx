@@ -363,27 +363,25 @@ function Card({
 export default function Home() {
   return (
     <main className="overflow-hidden bg-[url('/global-bg.png')] bg-cover bg-center bg-fixed">
-      <section id="hero" className="relative min-h-[95svh] flex flex-col items-center justify-center text-ink overflow-hidden border-b border-mint/20">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-          <motion.div
-            animate={{ y: [0, -30, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-10 left-[10%] h-64 w-64 rounded-[3rem] bg-gradient-to-br from-mint/30 to-emerald-200/10 backdrop-blur-3xl border border-white/60 shadow-2xl"
+      <section id="hero" className="relative min-h-[95svh] w-full flex flex-col justify-between text-ink overflow-hidden border-b border-mint/20">
+        {/* Desktop Hero Background Image */}
+        <div className="absolute inset-0 hidden md:block z-0">
+          <Image
+            src="/desktop.png"
+            alt="SehatDost AI Hero"
+            fill
+            priority
+            className="object-cover object-center"
           />
-          <motion.div
-            animate={{ y: [0, 40, 0], rotate: [0, -8, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-20 right-[5%] h-80 w-80 rounded-full bg-gradient-to-tr from-emerald-100/40 to-mint/20 backdrop-blur-3xl border border-white/60 shadow-xl"
-          />
-          <motion.div
-            animate={{ scale: [1, 1.05, 1], rotate: [0, 10, 0] }}
-            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute top-[40%] right-[15%] h-32 w-32 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg"
-          />
-          <motion.div
-            animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-            className="absolute bottom-[30%] left-[5%] h-48 w-48 rounded-[2rem] bg-gradient-to-t from-mint/20 to-white/40 backdrop-blur-2xl border border-white/50 shadow-md"
+        </div>
+        {/* Mobile Hero Background Image */}
+        <div className="absolute inset-0 block md:hidden z-0">
+          <Image
+            src="/mobile.png"
+            alt="SehatDost AI Hero Mobile"
+            fill
+            priority
+            className="object-cover object-center"
           />
         </div>
 
@@ -423,37 +421,8 @@ export default function Home() {
           </nav>
         </header>
 
-        <div className="relative z-10 mx-auto flex flex-col items-center text-center px-6 pt-32 pb-16 lg:px-8 max-w-6xl w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-full"
-          >
-            {/* Desktop Hero Image */}
-            <div className="hidden md:block w-full">
-              <Image
-                src="/desktop.png"
-                alt="SehatDost AI Desktop Preview"
-                width={1920}
-                height={1080}
-                className="w-full h-auto rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-slate-200/60"
-                priority
-              />
-            </div>
-            {/* Mobile Hero Image */}
-            <div className="block md:hidden w-full max-w-sm mx-auto">
-              <Image
-                src="/mobile.png"
-                alt="SehatDost AI Mobile Preview"
-                width={750}
-                height={1334}
-                className="w-full h-auto rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-slate-200/60"
-                priority
-              />
-            </div>
-          </motion.div>
-        </div>
+        {/* Empty container just to preserve height and layout */}
+        <div className="relative z-10 w-full min-h-[95svh] pointer-events-none" />
       </section>
 
       <section id="problem" className="section-pad bg-[url('/bg-tech-nodes.png')] bg-cover bg-center bg-fixed bg-emerald-50/70 backdrop-blur-md bg-blend-overlay">
