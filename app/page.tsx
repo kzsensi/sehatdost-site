@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import type { ReactNode } from "react";
 
@@ -164,34 +166,34 @@ const team: Array<{
   image: string;
 }> = [
     {
-      name: "Mr. Shashi Kumar",
-      role: "Co-Founder, CSO",
-      detail: "Mentor and educator with healthcare operations and leadership experience.",
-      image: "/team-shashi-kumar.png"
-    },
-    {
-      name: "Dr. Ruchi Singh Gaur",
-      role: "Co-Founder, COO",
-      detail: "CEO, Unity Critical Care, with direct hospital operations experience.",
-      image: "/team-ruchi-singh-gaur.png"
-    },
-    {
-      name: "Ms. Richa Prasad",
+      name: "Richa",
       role: "Founder, CMO",
       detail: "Hospital operations leader focused on practical process improvement.",
       image: "/team-richa-prasad.png"
     },
     {
-      name: "Mr. Kaushal Kishore",
-      role: "CFO",
-      detail: "Compliance and governance experience supporting responsible growth.",
-      image: "/team-kaushal-kishore.png"
+      name: "Ruchi",
+      role: "Co-Founder, COO",
+      detail: "CEO, Unity Critical Care, with direct hospital operations experience.",
+      image: "/team-ruchi-singh-gaur.png"
     },
     {
-      name: "Mr. Rahul Deo Pandey",
+      name: "Shashi",
+      role: "Co-Founder, CSO",
+      detail: "Mentor and educator with healthcare operations and leadership experience.",
+      image: "/team-shashi-kumar.png"
+    },
+    {
+      name: "Rahul",
       role: "CTO",
       detail: "Senior software developer with product and systems delivery experience.",
       image: "/team-rahul-deo-pandey.png"
+    },
+    {
+      name: "Kausha",
+      role: "CFO",
+      detail: "Compliance and governance experience supporting responsible growth.",
+      image: "/team-kaushal-kishore.png"
     }
   ];
 
@@ -312,8 +314,14 @@ function SectionHeader({
   align?: "center" | "left";
 }) {
   return (
-    <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-ocean">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6 }}
+      className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}
+    >
+      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-mint">
         {eyebrow}
       </p>
       <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
@@ -322,7 +330,7 @@ function SectionHeader({
       {copy ? (
         <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">{copy}</p>
       ) : null}
-    </div>
+    </motion.div>
   );
 }
 
@@ -336,29 +344,49 @@ function Card({
   body: string;
 }) {
   return (
-    <article className="reveal group rounded-[1.5rem] border border-slate-200/80 bg-white p-7 shadow-[0_16px_50px_rgba(7,17,31,0.055)] transition duration-300 hover:-translate-y-1 hover:border-ocean/25 hover:shadow-[0_24px_70px_rgba(7,17,31,0.09)]">
-      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-ocean/10 text-ocean transition duration-300 group-hover:bg-ocean group-hover:text-white">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6 }}
+      className="reveal group rounded-[1.5rem] border border-slate-200/80 bg-white/70 backdrop-blur p-7 shadow-[0_16px_50px_rgba(7,17,31,0.055)] transition duration-300 hover:-translate-y-1 hover:border-mint/25 hover:shadow-[0_24px_70px_rgba(7,17,31,0.09)]"
+    >
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-mint/10 text-mint transition duration-300 group-hover:bg-mint group-hover:text-white group-hover:shadow-[0_0_15px_rgba(25,201,167,0.6)]">
         <Icon name={icon} />
       </div>
       <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">{title}</h3>
       <p className="mt-3 text-sm leading-6 text-slate-600">{body}</p>
-    </article>
+    </motion.article>
   );
 }
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-white">
-      <section id="hero" className="relative min-h-[92svh] text-white">
-        <Image
-          src="/hero-slide.jpg"
-          alt="AI-enabled hospital operations center"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(4,16,32,0.82)_0%,rgba(5,22,42,0.72)_48%,rgba(5,22,42,0.45)_100%),linear-gradient(180deg,rgba(4,16,32,0.18),rgba(4,16,32,0.74))]" />
+    <main className="overflow-hidden bg-[url('/global-bg.png')] bg-cover bg-center bg-fixed">
+      <section id="hero" className="relative min-h-[95svh] flex flex-col items-center justify-center text-ink overflow-hidden border-b border-mint/20">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <motion.div
+            animate={{ y: [0, -30, 0], rotate: [0, 5, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-10 left-[10%] h-64 w-64 rounded-[3rem] bg-gradient-to-br from-mint/30 to-emerald-200/10 backdrop-blur-3xl border border-white/60 shadow-2xl"
+          />
+          <motion.div
+            animate={{ y: [0, 40, 0], rotate: [0, -8, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-20 right-[5%] h-80 w-80 rounded-full bg-gradient-to-tr from-emerald-100/40 to-mint/20 backdrop-blur-3xl border border-white/60 shadow-xl"
+          />
+          <motion.div
+            animate={{ scale: [1, 1.05, 1], rotate: [0, 10, 0] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute top-[40%] right-[15%] h-32 w-32 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/60 shadow-lg"
+          />
+          <motion.div
+            animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+            className="absolute bottom-[30%] left-[5%] h-48 w-48 rounded-[2rem] bg-gradient-to-t from-mint/20 to-white/40 backdrop-blur-2xl border border-white/50 shadow-md"
+          />
+        </div>
+
         <header className="absolute left-0 right-0 top-0 z-20">
           <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
             <a href="#hero" className="flex items-center">
@@ -367,13 +395,13 @@ export default function Home() {
                 alt="SehatDost AI"
                 width={316}
                 height={64}
-                className="h-10 w-auto sm:h-12"
+                className="h-10 w-auto sm:h-12 drop-shadow-sm"
                 priority
               />
             </a>
-            <div className="hidden items-center gap-7 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-medium text-white/85 backdrop-blur md:flex">
+            <div className="hidden items-center gap-7 rounded-full border border-slate-200/50 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-600 backdrop-blur-md shadow-sm md:flex">
               {navItems.map((item) => (
-                <a key={item.label} href={item.href} className="transition hover:text-white">
+                <a key={item.label} href={item.href} className="transition hover:text-mint">
                   {item.label}
                 </a>
               ))}
@@ -381,13 +409,13 @@ export default function Home() {
             <div className="hidden items-center gap-3 sm:flex">
               <a
                 href="https://portal.sehatdost.com"
-                className="rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/[0.16]"
+                className="rounded-full border border-mint/20 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-700 backdrop-blur-md shadow-sm transition hover:-translate-y-0.5 hover:border-mint/50"
               >
                 Dashboard
               </a>
               <a
                 href="mailto:founders@sehatdost.ai?subject=Request%20Early%20Access%20-%20SehatDost%20AI"
-                className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink shadow-lg transition hover:-translate-y-0.5 hover:bg-sky-50"
+                className="rounded-full bg-mint px-5 py-3 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl hover:bg-emerald-400"
               >
                 Request Early Access
               </a>
@@ -395,40 +423,63 @@ export default function Home() {
           </nav>
         </header>
 
-        <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-7xl items-center px-6 pb-16 pt-32 lg:px-8">
-          <div className="max-w-4xl">
-            <p className="hero-reveal inline-flex rounded-full border border-cyan-100/25 bg-white/10 px-4 py-2 text-sm font-semibold text-cyan-50 backdrop-blur">
-              {positioning}
-            </p>
-            <h1 className="hero-reveal mt-7 max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
-              Simplifying Claims. Amplifying Care.
-            </h1>
-            <p className="hero-reveal mt-7 max-w-3xl text-lg leading-8 text-slate-100 sm:text-xl">
-              SehatDost AI helps hospitals streamline insurance workflows,
-              reduce errors, and improve discharge experiences.
-            </p>
-            <p className="hero-reveal mt-5 text-sm font-medium text-cyan-100">
-              Currently in pilot phase. Launching soon.
-            </p>
-            <div className="hero-reveal mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="mailto:founders@sehatdost.ai?subject=Request%20Early%20Access%20-%20SehatDost%20AI"
-                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-ink shadow-xl transition hover:-translate-y-0.5 hover:bg-sky-50"
-              >
-                Request Early Access
-              </a>
-              <a
-                href="#problem"
-                className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/[0.16]"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
+        <div className="relative z-10 mx-auto flex flex-col items-center text-center px-6 pt-32 pb-16 lg:px-8 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center justify-center rounded-full border border-mint/30 bg-mint/10 px-5 py-2.5 text-sm font-bold text-emerald-700 backdrop-blur-md tracking-wide shadow-sm"
+          >
+            {positioning}
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="mt-8 text-6xl font-extrabold tracking-tight text-ink sm:text-7xl lg:text-8xl drop-shadow-sm"
+          >
+            Simplifying Claims.<br />Amplifying Care.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mt-8 text-xl leading-8 text-slate-600 sm:text-2xl max-w-3xl font-medium"
+          >
+            SehatDost AI helps hospitals streamline insurance workflows,
+            reduce errors, and improve discharge experiences.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600/80"
+          >
+            Currently in pilot phase. Launching soon.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mt-12 flex flex-col gap-4 sm:flex-row justify-center"
+          >
+            <a
+              href="mailto:founders@sehatdost.ai?subject=Request%20Early%20Access%20-%20SehatDost%20AI"
+              className="inline-flex items-center justify-center rounded-full bg-mint px-9 py-4 text-base font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl hover:bg-emerald-400 active:scale-95"
+            >
+              Request Early Access
+            </a>
+            <a
+              href="#problem"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 px-9 py-4 text-base font-bold text-ink backdrop-blur shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-white active:scale-95"
+            >
+              Learn More
+            </a>
+          </motion.div>
         </div>
       </section>
 
-      <section id="problem" className="section-pad bg-cloud">
+      <section id="problem" className="section-pad bg-[url('/bg-tech-nodes.png')] bg-cover bg-center bg-fixed bg-emerald-50/70 backdrop-blur-md bg-blend-overlay">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Problem"
@@ -443,7 +494,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="solution" className="section-pad bg-white">
+      <section id="solution" className="section-pad bg-[url('/bg-soft-waves.png')] bg-cover bg-center bg-fixed bg-white/70 backdrop-blur-md bg-blend-overlay">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Solution"
@@ -456,10 +507,10 @@ export default function Home() {
               {solutionSteps.map((step, index) => (
                 <article
                   key={step.title}
-                  className="reveal relative rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(7,17,31,0.055)] transition duration-300 hover:-translate-y-1 hover:border-ocean/25"
+                  className="reveal relative rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_16px_50px_rgba(7,17,31,0.055)] transition duration-300 hover:-translate-y-1 hover:border-mint/25"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-50 text-ocean ring-8 ring-white">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-mint ring-8 ring-white">
                       <Icon name={step.icon} />
                     </div>
                     <span className="text-sm font-semibold text-slate-300">
@@ -477,11 +528,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="features" className="section-pad bg-white">
+      <section id="features" className="section-pad bg-[url('/bg-soft-waves.png')] bg-cover bg-center bg-fixed bg-white/70 backdrop-blur-md bg-blend-overlay">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
             <div className="reveal">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-ocean">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-mint">
                 Product
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-5xl">
@@ -504,7 +555,7 @@ export default function Home() {
       <section id="impact" className="section-pad bg-ink text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">
               Expected Benefits
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -521,7 +572,7 @@ export default function Home() {
                 key={item.title}
                 className="reveal rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-7 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/[0.1]"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-300/15 text-cyan-200">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100/15 text-emerald-200">
                   <Icon name={item.icon} />
                 </div>
                 <h3 className="mt-6 text-lg font-semibold tracking-tight text-white">
@@ -534,7 +585,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="market" className="section-pad bg-cloud">
+      <section id="market" className="section-pad bg-white/70 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="India Healthcare"
@@ -549,7 +600,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="why" className="section-pad bg-white">
+      <section id="why" className="section-pad bg-[url('/bg-soft-waves.png')] bg-cover bg-center bg-fixed bg-white/70 backdrop-blur-md bg-blend-overlay">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Why SehatDost AI"
@@ -564,7 +615,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="team" className="section-pad bg-cloud">
+      <section id="team" className="section-pad bg-white/70 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Team"
@@ -572,12 +623,16 @@ export default function Home() {
             copy="A small team working closely with hospital partners to shape the product before launch."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {team.map((member) => (
-              <article
+            {team.map((member, index) => (
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 key={member.name}
-                className="reveal flex h-full flex-col rounded-[1.5rem] border border-slate-300/80 bg-white p-7 text-center shadow-[0_18px_55px_rgba(7,17,31,0.09)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(7,17,31,0.14)]"
+                className="reveal flex h-full flex-col rounded-[1.5rem] border border-slate-300/80 bg-white/70 backdrop-blur p-7 text-center shadow-[0_18px_55px_rgba(7,17,31,0.09)] transition duration-300 hover:-translate-y-1 hover:border-mint/40 hover:shadow-[0_26px_80px_rgba(7,17,31,0.14)]"
               >
-                <div className="mx-auto flex h-36 w-36 items-end justify-center overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_14px_35px_rgba(7,17,31,0.14)]">
+                <div className="mx-auto flex h-36 w-36 items-end justify-center overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_14px_35px_rgba(7,17,31,0.14)] transition-all duration-300 group-hover:shadow-[0_20px_45px_rgba(25,201,167,0.18)] group-hover:scale-105">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -589,11 +644,11 @@ export default function Home() {
                 <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
                   {member.name}
                 </h3>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-ocean">
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-mint">
                   {member.role}
                 </p>
                 <p className="mt-4 text-sm leading-6 text-slate-600">{member.detail}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -601,7 +656,7 @@ export default function Home() {
 
       <section id="cta" className="bg-ink px-6 py-24 text-white lg:px-8">
         <div className="reveal mx-auto max-w-4xl rounded-[1.75rem] border border-white/20 bg-white/[0.13] px-6 py-14 text-center shadow-[0_30px_100px_rgba(0,0,0,0.34)] backdrop-blur sm:px-10 lg:px-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-200">
             Early Access
           </p>
           <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -619,7 +674,7 @@ export default function Home() {
             </a>
             <a
               href="mailto:founders@sehatdost.ai"
-              className="text-sm font-semibold text-cyan-100 transition hover:text-white"
+              className="text-sm font-semibold text-emerald-100 transition hover:text-white"
             >
               founders@sehatdost.ai
             </a>
@@ -639,10 +694,10 @@ export default function Home() {
             />
           </a>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-            <a href="mailto:founders@sehatdost.ai" className="hover:text-ocean">
+            <a href="mailto:founders@sehatdost.ai" className="hover:text-mint">
               founders@sehatdost.ai
             </a>
-            <a href="https://www.sehatdost.ai" className="hover:text-ocean">
+            <a href="https://www.sehatdost.ai" className="hover:text-mint">
               www.sehatdost.ai
             </a>
             <p>Copyright 2026 SehatDost AI. All rights reserved.</p>
