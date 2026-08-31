@@ -423,58 +423,35 @@ export default function Home() {
           </nav>
         </header>
 
-        <div className="relative z-10 mx-auto flex flex-col items-center text-center px-6 pt-32 pb-16 lg:px-8 max-w-5xl">
+        <div className="relative z-10 mx-auto flex flex-col items-center text-center px-6 pt-32 pb-16 lg:px-8 max-w-6xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center justify-center rounded-full border border-mint/30 bg-mint/10 px-5 py-2.5 text-sm font-bold text-emerald-700 backdrop-blur-md tracking-wide shadow-sm"
+            className="w-full"
           >
-            {positioning}
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="mt-8 text-6xl font-extrabold tracking-tight text-ink sm:text-7xl lg:text-8xl drop-shadow-sm"
-          >
-            Simplifying Claims.<br />Amplifying Care.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mt-8 text-xl leading-8 text-slate-600 sm:text-2xl max-w-3xl font-medium"
-          >
-            SehatDost AI helps hospitals streamline insurance workflows,
-            reduce errors, and improve discharge experiences.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600/80"
-          >
-            Currently in pilot phase. Launching soon.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-12 flex flex-col gap-4 sm:flex-row justify-center"
-          >
-            <a
-              href="mailto:founders@sehatdost.ai?subject=Request%20Early%20Access%20-%20SehatDost%20AI"
-              className="inline-flex items-center justify-center rounded-full bg-mint px-9 py-4 text-base font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl hover:bg-emerald-400 active:scale-95"
-            >
-              Request Early Access
-            </a>
-            <a
-              href="#problem"
-              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 px-9 py-4 text-base font-bold text-ink backdrop-blur shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-white active:scale-95"
-            >
-              Learn More
-            </a>
+            {/* Desktop Hero Image */}
+            <div className="hidden md:block w-full">
+              <Image
+                src="/desktop.png"
+                alt="SehatDost AI Desktop Preview"
+                width={1920}
+                height={1080}
+                className="w-full h-auto rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-slate-200/60"
+                priority
+              />
+            </div>
+            {/* Mobile Hero Image */}
+            <div className="block md:hidden w-full max-w-sm mx-auto">
+              <Image
+                src="/mobile.png"
+                alt="SehatDost AI Mobile Preview"
+                width={750}
+                height={1334}
+                className="w-full h-auto rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-slate-200/60"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
       </section>
